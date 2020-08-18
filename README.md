@@ -1,11 +1,37 @@
-# ele_crud
-*Design  By  Vue + Element UI +Node +Express*
+# ele_yukiice
+*Design  By  Vue + Element UI  + BootStrap + Node +Express*
 
 * 项目目录结构
 
   > - admin
+  >   - 后台管理
   > - server
+  >   - Node
   > - web
+  >   - 前台页面
 
+## 开发日志
 
-
+- **开发目标**
+  - - [x] 前后端分离
+  - - [ ] 后端Node+MongoDB
+  - - [ ] 前端Vue+Nuxt
+  - - [ ] 后台管理
+  - - [ ] 前台响应式
+  - - [ ] 动画引入
+  - - [ ] 后端权限设计
+  - - [ ] 注册功能
+  - - [ ] 多用户登陆
+  - - [ ] MarkDown
+  - - [ ] 线上部署
+  - - [ ] 前台页面模块化
+  - - [ ] 组件动态可配置
+  - - [ ] Vuex数据管理 
+  - - [ ] 用户评论
+  - - [ ] 用户信息
+  - - [ ] 邮箱注册
+  - - [ ] 图片上传
+  - - [ ] 视频上传
+  - - [ ] 七牛云存储
+  - - [ ] 高德地图API接入
+  - - [ ] 后台数据可视化
