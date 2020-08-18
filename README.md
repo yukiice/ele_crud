@@ -1,2 +1,11 @@
 # ele_crud
-Node+Vue+Element
+*Design  By  Vue + Element UI +Node +Express*
+
+* 项目目录结构
+
+  > - admin
+  > - server
+  > - web
+
+
+
