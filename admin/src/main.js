@@ -4,9 +4,9 @@ import router from './router'
 import store from './store'
 import 'normalize.css/normalize.css'
 import './plugins/element.js'
-
+import http from './utils/axios'
 Vue.config.productionTip = false
-
+Vue.prototype.$http = http
 new Vue({
   router,
   store,

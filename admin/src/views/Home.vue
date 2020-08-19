@@ -1,12 +1,11 @@
 <template>
-  <div>
+  <div class="home">
       Home
-      <Main></Main>
   </div>
 </template>
 
 <script>
-import Main from './Main'
+
 export default {
 name:'Home',
 props:{
@@ -18,7 +17,7 @@ data() {
     }
 },
 components:{
-Main
+
 },
 created() {
     
