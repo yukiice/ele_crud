@@ -18,11 +18,11 @@ const routes = [
         component:()=>{'../views/Home.vue'}
       },
       {
-      path: '/category/create',
+      path: '/categories/create',
       component: () => import('../views/CategoryEdit.vue')
     },
   {
-    path:'/category/list',
+    path:'/categories/list',
     component:()=>import ('../views/CategoryList.vue')
   }
   ]

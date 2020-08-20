@@ -10,8 +10,8 @@
             <el-menu-item index="/home">首页</el-menu-item>
           </el-menu-item-group>
           <el-menu-item-group title="分类">
-            <el-menu-item index="/category/create">新建分类</el-menu-item>
-            <el-menu-item index="/category/list">分类列表</el-menu-item>
+            <el-menu-item index="/categories/create">新建分类</el-menu-item>
+            <el-menu-item index="/categories/list">分类列表</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
       </el-menu>
