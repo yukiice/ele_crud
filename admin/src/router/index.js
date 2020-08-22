@@ -21,6 +21,12 @@ const routes = [
       path: '/categories/create',
       component: () => import('../views/CategoryEdit.vue')
     },
+    {
+      path: '/categories/edit/:id',
+      component: () => import('../views/CategoryEdit.vue'),
+      // 这里开启props传参，这样在组件中直接可以使用props来接受参数，而不用使用this.$router.params.id
+      props:true
+    },
   {
     path:'/categories/list',
     component:()=>import ('../views/CategoryList.vue')

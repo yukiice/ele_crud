@@ -11,14 +11,34 @@ module.exports = app => {
         // 返回客户端
         res.send(model)
     })
+    // 编辑分类数据
+    router.put('/categories/:id', async (req, res) => {
+        // 创建模型接受
+        const model = await Category.findByIdAndUpdate(req.params.id, req.body)
+        // 返回客户端
+        res.send(model)
+    })
+     // 编辑分类数据
+     router.delete('/categories/:id', async (req, res) => {
+        // 创建模型接受
+        const model = await Category.findByIdAndDelete(req.params.id, req.body)
+        // 返回客户端
+        res.send(model)
+    })
 
     //分类数据 
-    router.get('/categories',async (req,res)=>{
+    router.get('/categories', async (req, res) => {
         // 限制category  为 10 条
         const items = await Category.find().limit(10)
         res.send(items)
     })
 
+    //分类数据根据ID进行跳转编辑 
+    router.get('/categories/:id', async (req, res) => {
+        // 限制category  为 10 条
+        const model = await Category.findById(req.params.id)
+        res.send(model)
+    })
 
 
 
