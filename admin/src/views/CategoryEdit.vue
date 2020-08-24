@@ -8,6 +8,11 @@
       @submit.native.prevent="save"
       label-width="80px"
     >
+      <el-form-item label="上级分类" prop="name">
+        <el-select v-model="model.parent" placeholder>
+          <el-option v-for="item in parents" :key="item._id" :label="item.name" :value="item._id"></el-option>
+        </el-select>
+      </el-form-item>
       <el-form-item label="名称" prop="name">
         <el-input v-model="model.name"></el-input>
       </el-form-item>
@@ -31,35 +36,43 @@ export default {
       modelRules: {
         name: [{ required: true, message: "请输入分类名称", trigger: "blur" }],
       },
+      // 父级下拉菜单选项
+      parents: [],
     };
   },
   components: {},
   created() {
     this.id && this.fetch();
+    this.fetchParents();
   },
   computed: {},
   methods: {
     // 表单提交方法
     async save() {
       let res;
-    if (this.id) {
-      res = await this.$http.put(`/categories/${this.id}`, this.model);
-    }else{
-      res = await this.$http.post("/categories", this.model);
-    }
-    
+      if (this.id) {
+        res = await this.$http.put(`/categories/${this.id}`, this.model);
+      } else {
+        res = await this.$http.post("/categories", this.model);
+      }
+
       this.$router.push("/categories/list");
       this.$message({
         type: "success",
         message: "保存成功",
       });
-      
     },
 
     // 请求点击编辑后的数据
     async fetch() {
       const res = await this.$http.get(`/categories/${this.id}`);
       this.model = res.data;
+    },
+
+    //  请求父级下拉框数据
+    async fetchParents() {
+      const res = await this.$http.get(`/categories`);
+      this.parents = res.data;
     },
   },
 };

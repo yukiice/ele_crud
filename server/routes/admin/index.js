@@ -29,7 +29,8 @@ module.exports = app => {
     //分类数据 
     router.get('/categories', async (req, res) => {
         // 限制category  为 10 条
-        const items = await Category.find().limit(10)
+        // populate是关联的意思 可以查出来
+        const items = await Category.find().populate('parent').limit(10)
         res.send(items)
     })
 

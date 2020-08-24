@@ -82,7 +82,7 @@ module.exports = function (app) {
         switch (_context4.prev = _context4.next) {
           case 0:
             _context4.next = 2;
-            return regeneratorRuntime.awrap(Category.find().limit(10));
+            return regeneratorRuntime.awrap(Category.find().populate('parent').limit(10));
 
           case 2:
             items = _context4.sent;
