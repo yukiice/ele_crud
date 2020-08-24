@@ -4,11 +4,11 @@ const schema = new mongoose.Schema({
     name: {
         type: String
     },
-    parent:{
+    parent: {
         // 表示他是一个数据库里面的objectId
-        type:mongoose.SchemaTypes.ObjectId,
+        type: mongoose.SchemaTypes.ObjectId,
         // 表示关联的模型
-        ref:'Category'
+        ref: 'Category'
     }
 })
 

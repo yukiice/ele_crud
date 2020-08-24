@@ -35,11 +35,11 @@ export default {
     // 获取数据信息-------------------------
     // 获取列表数据
     async getTableData() {
-      const res = await this.$http.get("/categories");
+      const res = await this.$http.get("rest/categories");
       this.tableData = res.data;
     },
     
-    // 页面详情查看事件--------------------
+    // 页面详情查看事件-------------------- 
     rowClick(row){
       console.log(row)
     },
@@ -53,12 +53,12 @@ export default {
     // 删除事件------------------------------
     async deleteClick(row){
       
-       this.$confirm('此操作将永久删除该分类, 是否继续?', '提示', {
+       this.$confirm(`此操作将永久删除"${row.name}", 是否继续?`, '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'
         }).then(async () => {
-          const res = await this.$http.delete(`/categories/${row._id}`)
+          const res = await this.$http.delete(`rest/categories/${row._id}`)
           this.$message({
             type: 'success',
             message: '删除成功!'
