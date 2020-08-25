@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const routes = [
-  
+
   {
     path: '/',
     name: "Main",
@@ -12,26 +12,44 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import( /* webpackChunkName: "about" */ '../views/Main.vue'),
-    children: [
-      {
-        path:'/home',
-        component:()=>{'../views/Home.vue'}
+    children: [{
+        path: '/home',
+        component: () => {
+          '../views/Home.vue'
+        }
       },
       {
-      path: '/categories/create',
-      component: () => import('../views/CategoryEdit.vue')
-    },
-    {
-      path: '/categories/edit/:id',
-      component: () => import('../views/CategoryEdit.vue'),
-      // 这里开启props传参，这样在组件中直接可以使用props来接受参数，而不用使用this.$router.params.id
-      props:true
-    },
-  {
-    path:'/categories/list',
-    component:()=>import ('../views/CategoryList.vue')
-  }
-  ]
+        path: '/categories/create',
+        component: () => import('../views/CategoryEdit.vue')
+      },
+      {
+        path: '/categories/edit/:id',
+        component: () => import('../views/CategoryEdit.vue'),
+        // 这里开启props传参，这样在组件中直接可以使用props来接受参数，而不用使用this.$router.params.id
+        props: true
+      },
+      {
+        path: '/categories/list',
+        component: () => import('../views/CategoryList.vue')
+      },
+
+
+      // Item ------------------------------
+      {
+        path: '/items/create',
+        component: () => import('../views/ItemEdit.vue')
+      },
+      {
+        path: '/items/edit/:id',
+        component: () => import('../views/ItemEdit.vue'),
+        // 这里开启props传参，这样在组件中直接可以使用props来接受参数，而不用使用this.$router.params.id
+        props: true
+      },
+      {
+        path: '/items/list',
+        component: () => import('../views/ItemList.vue')
+      }
+    ]
   },
 
 ]

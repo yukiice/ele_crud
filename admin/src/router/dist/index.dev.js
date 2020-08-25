@@ -58,6 +58,30 @@ var routes = [{
         return _interopRequireWildcard(require('../views/CategoryList.vue'));
       });
     }
+  }, // Item ------------------------------
+  {
+    path: '/items/create',
+    component: function component() {
+      return Promise.resolve().then(function () {
+        return _interopRequireWildcard(require('../views/ItemEdit.vue'));
+      });
+    }
+  }, {
+    path: '/items/edit/:id',
+    component: function component() {
+      return Promise.resolve().then(function () {
+        return _interopRequireWildcard(require('../views/ItemEdit.vue'));
+      });
+    },
+    // 这里开启props传参，这样在组件中直接可以使用props来接受参数，而不用使用this.$router.params.id
+    props: true
+  }, {
+    path: '/items/list',
+    component: function component() {
+      return Promise.resolve().then(function () {
+        return _interopRequireWildcard(require('../views/ItemList.vue'));
+      });
+    }
   }]
 }];
 var router = new _vueRouter["default"]({
