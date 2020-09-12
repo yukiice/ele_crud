@@ -39,7 +39,7 @@ export default {
   components: {},
   created() {
     this.id && this.fetch();
-    this.fetchParents();
+    // this.fetchParents();
   },
   computed: {},
   methods: {
