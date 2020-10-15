@@ -2,9 +2,14 @@
   <div>
     <h1>物品列表</h1>
     <el-table :data="tableData" border stripe>
-      <el-table-column prop="_id" label="ID" width></el-table-column>
-      <el-table-column prop="name" label="物品名称" width></el-table-column>
-      <el-table-column fixed="right" label="操作" width="180">
+      <el-table-column prop="_id" label="ID" width align="center"></el-table-column>
+      <el-table-column prop="name" label="物品名称" width align="center"></el-table-column>
+       <el-table-column prop="icon" label="图标" align="center">
+         <template v-slot="slotProps">
+             <img class="icon_img" :src="slotProps.row.icon" alt="">
+         </template>
+       </el-table-column>
+      <el-table-column fixed="right" label="操作" width="180" align="center">
         <template slot-scope="scope">
           <el-button type="text" @click="rowClick(scope.row)">查看</el-button>
           <el-button type="text" @click="editClick(scope.row)">编辑</el-button>
@@ -76,6 +81,12 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="less">
+
+  .icon_img{
+  width: 30%;
+  height: 30%;
+}
+
 </style>
 
