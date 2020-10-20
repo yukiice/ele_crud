@@ -48,7 +48,23 @@ const routes = [
       {
         path: '/items/list',
         component: () => import('../views/ItemList.vue')
-      }
+      },
+
+       // heros ------------------------------
+       {
+        path: '/heros/create',
+        component: () => import('../views/HeroEdit.vue')
+      },
+      {
+        path: '/heros/edit/:id',
+        component: () => import('../views/HeroEdit.vue'),
+        // 这里开启props传参，这样在组件中直接可以使用props来接受参数，而不用使用this.$router.params.id
+        props: true
+      },
+      {
+        path: '/heros/list',
+        component: () => import('../views/HeroList.vue')
+      },
     ]
   },
 
