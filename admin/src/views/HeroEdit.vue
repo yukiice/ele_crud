@@ -1,18 +1,33 @@
 <template>
   <div>
-    {{ id ? "编辑" : "新建" }}英雄
+    <h1>{{ id ? "编辑" : "新建" }}英雄</h1>
     <el-form
       :model="model"
       ref="form"
       :rules="modelRules"
       @submit.native.prevent="save"
-      label-width="80px"
+      label-width="100px"
     >
-      <el-form-item label="名称">
+    <!-- tabs标签页 -->
+     <el-tabs type="border-card">
+       <el-tab-pane label="基本信息">
+          <el-form-item label="名称">
         <el-input v-model="model.name" placeholder="请输入名称"></el-input>
       </el-form-item>
       <el-form-item label="称号">
         <el-input v-model="model.title" placeholder="请输入称号"></el-input>
+      </el-form-item>
+      <el-form-item label="头像">
+        <el-upload
+          class="avatar-uploader"
+          :action="$http.defaults.baseURL + '/upload'"
+          :show-file-list="false"
+          :on-success="successUpload"
+          :before-upload="beforeAvatarUpload"
+        >
+          <img v-if="model.icon" :src="model.icon" class="avatar" />
+          <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+        </el-upload>
       </el-form-item>
       <el-form-item label="类型">
         <el-select v-model="model.categories" multiple placeholder="请选择类型">
@@ -92,19 +107,43 @@
       <el-form-item label="团战思路">
         <el-input v-model="model.teamTips" type="textarea"> </el-input>
       </el-form-item>
-      <el-form-item label="头像">
-        <el-upload
+       </el-tab-pane>
+       <el-tab-pane label="技能">
+         <el-button type="primary" @click="addSkills"><i class="el-icon-plus"></i>添加技能</el-button>
+         <el-row type="skillsFlex">
+           <el-col :md="12" v-for="(item,i) in model.skills" :key="i">
+             <el-card class="box-card cardBorder">
+  <div slot="header" class="clearfix">
+    <span>{{item.name}}</span>
+    <el-button style="float: right" type="danger" @click="deleteSkills(i)"><i class="el-icon-delete"></i>删除该技能</el-button>
+  </div>
+  <el-form-item label="名称">
+               <el-input v-model="item.name"></el-input>
+             </el-form-item>
+             <el-form-item label="图标">
+               <el-upload
           class="avatar-uploader"
           :action="$http.defaults.baseURL + '/upload'"
           :show-file-list="false"
-          :on-success="successUpload"
-          :before-upload="beforeAvatarUpload"
+          :on-success="res=>$set(item,'icon',res.url)"
         >
-          <img v-if="model.icon" :src="model.icon" class="avatar" />
+          <img v-if="item.icon" :src="item.icon" class="avatar" />
           <i v-else class="el-icon-plus avatar-uploader-icon"></i>
         </el-upload>
-      </el-form-item>
-      <el-form-item>
+             </el-form-item>
+             <el-form-item label="描述">
+               <el-input type="textarea" v-model="item.description"></el-input>
+             </el-form-item>
+             <el-form-item label="小提示">
+               <el-input type="textarea" v-model="item.tips"></el-input>
+             </el-form-item>
+             </el-card>
+             
+           </el-col>
+         </el-row>
+       </el-tab-pane>
+     </el-tabs>
+      <el-form-item class="submitEnd">
         <el-button type="primary" native-type="onSubmit">立即创建</el-button>
         <el-button>取消</el-button>
       </el-form-item>
@@ -123,6 +162,7 @@ export default {
       model: {
         icon: "",
         scores: {},
+        skills:[]
       },
       modelRules: {
         name: [{ required: true, message: "请输入标签名称", trigger: "blur" }],
@@ -178,10 +218,17 @@ export default {
     beforeAvatarUpload() {},
     // 上传图片成功后
     successUpload(files) {
-      console.log(files);
       // 这里icon已经有了但是没有显示  所以使用$set进行显式赋值
       // this.$set(this.model, 'icon', files.url);
       this.model.icon = files.url;
+    },
+
+    // 点击按钮添加技能
+    addSkills(){
+      this.model.skills.push({})
+    },
+    deleteSkills(i){
+      this.model.skills.splice(i,1)
     },
   },
 };
@@ -211,5 +258,25 @@ export default {
   height: 178px;
   display: block;
 }
+.submitEnd{
+  display: flex;
+  justify-content: center;
+  margin-top: 2vh;
+}
+.skillsFlex{
+  display: flex;
+  flex-wrap: wrap;
+}
+.cardBorder{
+  margin: 1vh 1vw;
+}
+  .clearfix:before,
+  .clearfix:after {
+    display: table;
+    content: "";
+  }
+  .clearfix:after {
+    clear: both
+  }
 </style>
 
