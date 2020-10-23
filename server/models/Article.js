@@ -4,9 +4,11 @@ const schema = new mongoose.Schema({
     title:{
         type:String
     },
-    categories:[{
-        type:mongoose.SchemaTypes.ObjectId,ref:'Category'
-    }],
+    categories: {
+        // 根据id  关联Category
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: 'Category'
+    },
     body:{type:String},
 })
 
