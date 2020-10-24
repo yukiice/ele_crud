@@ -14,7 +14,10 @@ export default {
 }
 </script>
 
-<style>
+<style lang='less'>
+.bread_crumb{
+  margin-bottom: 3vh;
+}
 
 
 </style>

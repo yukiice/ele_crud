@@ -1,6 +1,12 @@
 <template>
   <div>
-    <h1>{{ id ? "编辑" : "新建" }}英雄</h1>
+    <div class="bread_crumb">
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item><a href="#">英雄管理</a></el-breadcrumb-item>
+        <el-breadcrumb-item>{{ id ? "编辑" : "新建" }}英雄</el-breadcrumb-item>
+      </el-breadcrumb>
+    </div>
     <el-form
       :model="model"
       ref="form"

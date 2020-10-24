@@ -1,6 +1,12 @@
 <template>
   <div>
-    <h1>分类列表</h1>
+    <div class="bread_crumb">
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item><a href="#">分类管理</a></el-breadcrumb-item>
+        <el-breadcrumb-item>分类列表</el-breadcrumb-item>
+      </el-breadcrumb>
+    </div>
     <el-table :data="tableData" border stripe>
       <el-table-column prop="_id" label="ID" width></el-table-column>
       <el-table-column prop="parent.name" label="上级分类" width></el-table-column>

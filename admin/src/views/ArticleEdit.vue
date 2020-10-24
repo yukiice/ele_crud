@@ -1,6 +1,12 @@
 <template>
   <div>
-    {{ id ? "编辑" : "新建" }}文章
+    <div class="bread_crumb">
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item><a href="#">文章管理</a></el-breadcrumb-item>
+        <el-breadcrumb-item>{{ id ? "编辑" : "新建" }}文章</el-breadcrumb-item>
+      </el-breadcrumb>
+    </div>
     <el-form
       ref="form"
       :rules="modelRules"

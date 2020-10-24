@@ -1,6 +1,12 @@
 <template>
   <div>
-    <h1>文章列表</h1>
+    <div class="bread_crumb">
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item><a href="#">文章管理</a></el-breadcrumb-item>
+        <el-breadcrumb-item>{{ id ? "编辑" : "新建" }}文章</el-breadcrumb-item>
+      </el-breadcrumb>
+    </div>
     <el-table :data="tableData" border stripe>
       <el-table-column prop="_id" label="ID" width></el-table-column>
       <el-table-column prop="title" label="文章标题" width></el-table-column>
