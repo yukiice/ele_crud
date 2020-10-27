@@ -119,5 +119,6 @@ export default {
   height: 178px;
   display: block;
 }
+
 </style>
 
