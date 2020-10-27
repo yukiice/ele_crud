@@ -4,6 +4,9 @@ const schema = new mongoose.Schema({
     name: {
         type: String
     },
+    icon: {
+        type: String
+    },
     parent: {
         // 表示他是一个数据库里面的objectId
         type: mongoose.SchemaTypes.ObjectId,

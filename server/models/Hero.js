@@ -73,9 +73,14 @@ const schema = new mongoose.Schema({
         type: String
     },
     partners: [{
-        hero:{type:mongoose.SchemaTypes.ObjectId,ref:'Hero'},
+        hero: {
+            type: mongoose.SchemaTypes.ObjectId,
+            ref: 'Hero'
+        },
         // 描述
-        description:{type:String},
+        description: {
+            type: String
+        },
     }]
 })
 
