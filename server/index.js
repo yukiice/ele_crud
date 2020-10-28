@@ -1,7 +1,7 @@
 const express = require('express')
 
 const app = express()
-
+app.set('secret','545454848dd4ddd')
 app.use(require('cors')())
 app.use(express.json())
 // 引入上传

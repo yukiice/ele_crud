@@ -1,7 +1,12 @@
 <template>
   <el-container style="height: 100vh">
     <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
-      <el-menu router :default-openeds="['1', '3']">
+      <el-menu
+        router
+        :default-openeds="['1', '3']"
+        unique-opened
+        :default-active="$route.path"
+      >
         <el-submenu index="1">
           <template slot="title">
             <i class="el-icon-message"></i>Yukiice
@@ -21,14 +26,18 @@
             <el-menu-item index="/heros/create">新建英雄</el-menu-item>
             <el-menu-item index="/heros/list">英雄列表</el-menu-item>
           </el-menu-item-group>
-           <el-menu-item-group title="文章">
+          <el-menu-item-group title="文章">
             <el-menu-item index="/articles/create">新建文章</el-menu-item>
             <el-menu-item index="/articles/list">文章列表</el-menu-item>
-          </el-menu-item-group> 
+          </el-menu-item-group>
           <el-menu-item-group title="广告">
             <el-menu-item index="/ads/create">新建广告</el-menu-item>
             <el-menu-item index="/ads/list">广告列表</el-menu-item>
-          </el-menu-item-group> 
+          </el-menu-item-group>
+          <el-menu-item-group title="用户管理">
+            <el-menu-item index="/adminusers/create">新建用户</el-menu-item>
+            <el-menu-item index="/adminusers/list">用户列表</el-menu-item>
+          </el-menu-item-group>
         </el-submenu>
       </el-menu>
     </el-aside>
