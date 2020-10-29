@@ -18,6 +18,10 @@ const schema = new mongoose.Schema({
     body: {
         type: String
     },
+    createTime: {
+        type: Date,
+        default: Date.now
+    }
 })
 
 module.exports = mongoose.model('Article', schema)

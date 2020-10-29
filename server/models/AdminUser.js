@@ -9,6 +9,9 @@ const schema = new mongoose.Schema({
         set(val) {
             return require('bcrypt').hashSync(val, 10)
         }
+    },
+    remember: {
+        type: Boolean
     }
 })
 
