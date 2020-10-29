@@ -3,6 +3,13 @@ import Vue from 'vue'
 const http = axios.create({
     baseURL: 'http://localhost:3000/admin/api'
 })
+// 拦截器添加token
+http.interceptors.use(config => {
+    config.headers.Author
+    return config
+}, error => {
+    return Promise.reject(error)
+})
 http.interceptors.response.use(res => {
     return res
 }, err => {

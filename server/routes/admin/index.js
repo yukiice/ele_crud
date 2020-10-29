@@ -9,8 +9,11 @@ module.exports = app => {
     const Category = require('../../models/Category')
 
 
-    //分类数据请求 
-    router.get('/', async (req, res) => {
+    //资源列表 
+    router.get('/',async (req,res,next)=>{
+        // 这是一个中间件，校验用户是否登录
+        
+    }, async (req, res) => {
         // 限制category  为 10 条
         // populate是关联的意思 可以查出来
 
@@ -23,7 +26,13 @@ module.exports = app => {
         res.send(items)
     })
 
-    // 创建分类数据
+    //资源详情
+    router.get('/:id', async (req, res) => {
+        const model = await req.Model.findById(req.params.id)
+        res.send(model)
+    })
+
+    // 创建资源数据
     router.post('/', async (req, res) => {
         // 创建模型接受
         const model = await req.Model.create(req.body)
@@ -32,14 +41,14 @@ module.exports = app => {
     })
 
 
-    // 编辑分类数据
+    // 编辑资源数据
     router.put('/:id', async (req, res) => {
         // 创建模型接受
         const model = await req.Model.findByIdAndUpdate(req.params.id, req.body)
         // 返回客户端
         res.send(model)
     })
-    // 删除分类数据
+    // 删除资源数据
     router.delete('/:id', async (req, res) => {
         // 创建模型接受
         const model = await req.Model.findByIdAndDelete(req.params.id, req.body)
@@ -49,12 +58,7 @@ module.exports = app => {
 
 
 
-    //分类数据根据ID进行跳转编辑 
-    router.get('/:id', async (req, res) => {
-        // 限制category  为 10 条
-        const model = await req.Model.findById(req.params.id)
-        res.send(model)
-    })
+
 
 
 
