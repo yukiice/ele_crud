@@ -7,6 +7,9 @@ const routes = [{
         path: '/login',
         name: Login,
         component: Login,
+        meta: {
+            isPublic: true
+        },
     },
     {
         path: '/',
@@ -14,9 +17,10 @@ const routes = [{
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
-        redirect:'/login',
+        redirect: '/login',
         component: () =>
             import( /* webpackChunkName: "about" */ '../views/Main.vue'),
+
         children: [{
                 path: '/home',
                 component: () =>
@@ -119,19 +123,19 @@ const routes = [{
             },
             // user --------------------------------------
             {
-                path: '/adminusers/create',
+                path: '/users/create',
                 component: () =>
                     import('../views/UserEdit.vue')
             },
             {
-                path: '/adminusers/edit/:id',
+                path: '/users/edit/:id',
                 component: () =>
                     import('../views/UserEdit.vue'),
                 // 这里开启props传参，这样在组件中直接可以使用props来接受参数，而不用使用this.$router.params.id
                 props: true
             },
             {
-                path: '/adminusers/list',
+                path: '/users/list',
                 component: () =>
                     import('../views/UserList.vue')
             },
@@ -141,8 +145,19 @@ const routes = [{
 
 ]
 
+// 路由守卫
+
+
+
 const router = new VueRouter({
     routes
+})
+
+router.beforeEach((to, from, next) => {
+    if (!to.meta.isPublic && !localStorage.token) {
+        return next('/login')
+    }
+    next()
 })
 
 export default router

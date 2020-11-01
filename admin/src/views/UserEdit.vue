@@ -8,16 +8,14 @@
       </el-breadcrumb>
     </div>
     <el-form
-      :model="model"
       ref="form"
-      :rules="modelRules"
       @submit.native.prevent="save"
       label-width="80px"
     >
-      <el-form-item label="账号" prop="name">
+      <el-form-item label="账号">
         <el-input v-model="model.username"></el-input>
       </el-form-item>
-      <el-form-item label="密码" prop="name">
+      <el-form-item label="密码" >
         <el-input v-model="model.password"></el-input>
       </el-form-item>
       <el-form-item>
@@ -37,14 +35,6 @@ export default {
   data() {
     return {
       model: {},
-      modelRules: {
-        username: [
-          { required: true, message: "请输入用户名称", trigger: "blur" },
-        ],
-        passwrod: [
-          { required: true, message: "请输入用户密码", trigger: "blur" },
-        ],
-      },
       // 父级下拉菜单选项
       parents: [],
     };
@@ -59,12 +49,12 @@ export default {
     async save() {
       let res;
       if (this.id) {
-        res = await this.$http.put(`rest/adminusers/${this.id}`, this.model);
+        res = await this.$http.put(`rest/users/${this.id}`, this.model);
       } else {
-        res = await this.$http.post("rest/adminusers", this.model);
+        res = await this.$http.post("rest/users", this.model);
       }
 
-      this.$router.push("/adminusers/list");
+      this.$router.push("/users/list");
       this.$message({
         type: "success",
         message: "保存成功",
@@ -73,7 +63,7 @@ export default {
 
     // 请求点击编辑后的数据
     async fetch() {
-      const res = await this.$http.get(`rest/adminusers/${this.id}`);
+      const res = await this.$http.get(`rest/users/${this.id}`);
       this.model = res.data;
     },
   },

@@ -10,7 +10,6 @@
     <el-table :data="tableData" border stripe>
       <el-table-column prop="_id" label="ID" width></el-table-column>
       <el-table-column prop="username" label="用户名" width></el-table-column>
-      <el-table-column prop="password" label="密码" width></el-table-column>
       <el-table-column fixed="right" label="操作" width="180">
         <template slot-scope="scope">
           <el-button type="text" @click="rowClick(scope.row)">查看</el-button>
@@ -43,7 +42,7 @@ export default {
     // 获取数据信息-------------------------
     // 获取列表数据
     async getTableData() {
-      const res = await this.$http.get("rest/adminusers");
+      const res = await this.$http.get("rest/users");
       this.tableData = res.data;
     },
 
@@ -55,7 +54,7 @@ export default {
     // 编辑事件-----------------------------
     editClick(row) {
       console.log(row);
-      this.$router.push(`/adminusers/edit/${row._id}`);
+      this.$router.push(`/users/edit/${row._id}`);
     },
 
     // 删除事件------------------------------
@@ -66,7 +65,7 @@ export default {
         type: "warning",
       })
         .then(async () => {
-          const res = await this.$http.delete(`rest/adminusers/${row._id}`);
+          const res = await this.$http.delete(`rest/users/${row._id}`);
           this.$message({
             type: "success",
             message: "删除成功!",

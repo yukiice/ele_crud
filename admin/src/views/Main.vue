@@ -35,8 +35,8 @@
             <el-menu-item index="/ads/list">广告列表</el-menu-item>
           </el-menu-item-group>
           <el-menu-item-group title="用户管理">
-            <el-menu-item index="/adminusers/create">新建用户</el-menu-item>
-            <el-menu-item index="/adminusers/list">用户列表</el-menu-item>
+            <el-menu-item index="/users/create">新建用户</el-menu-item>
+            <el-menu-item index="/users/list">用户列表</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
       </el-menu>
