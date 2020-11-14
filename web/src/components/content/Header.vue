@@ -1,8 +1,10 @@
 <template>
   <div>
     <v-app-bar app color="indigo" dark>
-      <v-toolbar-title>Application</v-toolbar-title>
-      
+      <v-toolbar-title
+        >Application
+        <v-btn depressed color="primary" @click="clickToPath"> Primary </v-btn>
+      </v-toolbar-title>
     </v-app-bar>
   </div>
 </template>
@@ -17,7 +19,11 @@ export default {
   components: {},
   created() {},
   computed: {},
-  methods: {},
+  methods: {
+    clickToPath(){
+      this.$router.push('/honor')
+    }
+  },
 };
 </script>
 

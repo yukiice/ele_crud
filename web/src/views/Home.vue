@@ -1,5 +1,6 @@
 <template>
   <div id="home">
+    <Header />
     <div class="t_bg mktg-container mktg-bg--dancer">
       <v-container>
         <v-row class="text-center">
@@ -133,6 +134,7 @@
 </template>
 
 <script>
+import Header from "../components/content/Header";
 export default {
   name: "HelloWorld",
 
@@ -189,6 +191,9 @@ export default {
       },
     ],
   }),
+  components:{
+    Header
+  }
 };
 </script>
 
