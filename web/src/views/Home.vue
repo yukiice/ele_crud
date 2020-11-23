@@ -9,9 +9,7 @@
           </v-col>
 
           <v-col class="mb-4">
-            <h1 class="display-2  mb-3">
-              Hello,I'm Yukiice
-            </h1>
+            <h1 class="display-2 mb-3">Hello,I'm Yukiice</h1>
             <p class="subheading font-weight-regular">
               Welcome to my homepage,
               <br />You can contact me by email
@@ -28,7 +26,9 @@
       <v-container>
         <v-row class="text-center">
           <v-col class="mb-5" cols="12">
-            <h2 class="headline font-weight-bold mb-3">How to develop this website</h2>
+            <h2 class="headline font-weight-bold mb-3">
+              How to develop this website
+            </h2>
 
             <v-row justify="center">
               <a
@@ -191,9 +191,9 @@ export default {
       },
     ],
   }),
-  components:{
-    Header
-  }
+  components: {
+    Header,
+  },
 };
 </script>
 
@@ -204,42 +204,66 @@ export default {
   border-radius: 50% !important;
 }
 .mktg-container.mktg-bg--dancer {
-      background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.1)),to(rgba(0,0,0,.5))),url(../common/img/t_bg.png);
-  background-image: linear-gradient(90deg,rgba(0,0,0,.1) 0,rgba(0,0,0,.5)),url(../common/img/t_bg.png);
+  background-image: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      from(rgba(0, 0, 0, 0.1)),
+      to(rgba(0, 0, 0, 0.5))
+    ),
+    url(../common/img/t_bg.png);
+  background-image: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.1) 0,
+      rgba(0, 0, 0, 0.5)
+    ),
+    url(../common/img/t_bg.png);
   background-size: cover;
   background-position: 40%;
-  height: 600px;
+  height: 690px;
 }
 .mktg-container {
   overflow: hidden;
 }
 
 // m1 bg
-.m1_bg{
-      background-color: #F2F2F2;
-      height: 600px;
+.m1_bg {
+  background-color: #f2f2f2;
+  height: 690px;
 }
 
 // m2 bg
-.m2_bg{
-  background: #F8F8F8;
+.m2_bg {
+  background: #f8f8f8;
+  height: 690px;
 }
 
 // m3 bg
-.m3_bg{
+.m3_bg {
   background-repeat: no-repeat;
-    background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.4)),to(rgba(0,0,0,.4))),url(../common/img/m3_bg.png);
-    background-image: linear-gradient(90deg,rgba(0,0,0,.4) 0,rgba(0,0,0,.4)),url(../common/img/m3_bg.png);
-    background-position: top;
-    background-size: cover;
-    height: 330px;
+  background-image: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      from(rgba(0, 0, 0, 0.4)),
+      to(rgba(0, 0, 0, 0.4))
+    ),
+    url(../common/img/m3_bg.png);
+  background-image: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.4) 0,
+      rgba(0, 0, 0, 0.4)
+    ),
+    url(../common/img/m3_bg.png);
+  background-position: top;
+  background-size: cover;
+  height: 690px;
 }
 
 //  m4 bg
-.m4_bg{
-  background: #007A73;
+.m4_bg {
+  background: #007a73;
 }
 
-//b bg  
-
+//b bg
 </style>

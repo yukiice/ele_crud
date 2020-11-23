@@ -9,7 +9,6 @@ const routes = [{
         name: 'Home',
         component: Home,
         children: [],
-        redirect:'/honor'
     },
     {
         path:'/honor',
