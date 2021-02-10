@@ -7,7 +7,7 @@ import vuetify from './plugins/vuetify';
 import Vant from 'vant';
 import 'vant/lib/index.css';
 
-import './style.scss'
+
 
 Vue.use(Vant);
 Vue.config.productionTip = false
