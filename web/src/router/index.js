@@ -13,7 +13,7 @@ const routes = [{
     {
         path:'/honor',
         name:'Honor',
-        component:()=>import('../views/Honor.vue')
+        component:()=>import('../views/Honor.vue'),
     }
 
 ]
