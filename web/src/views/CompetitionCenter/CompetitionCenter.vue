@@ -8,7 +8,7 @@
 -->
 <template>
   <div>
-      赛事中心
+      我的待办
   </div>
 </template>
 

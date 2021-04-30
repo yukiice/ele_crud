@@ -15,7 +15,7 @@
       <div class="d-flex ai-center">
         <a href="#" class="logo"></a>
         <div>
-          <div class="text-white px-3 fs-sm">王者荣耀</div>
+          <div class="text-white px-3 fs-sm"></div>
           <div class="text-dark1 fs-xss px-3">团队成就更多</div>
         </div>
       </div>

@@ -8,7 +8,7 @@
 -->
 <template>
   <div>
-    <down-load></down-load>
+    <!-- <down-load></down-load> -->
     <div>
         <nav-link></nav-link>
     </div>

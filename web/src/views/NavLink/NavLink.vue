@@ -12,10 +12,10 @@
       <van-tab title="首页">
         <Home></Home>
       </van-tab>
-      <van-tab title="攻略中心">
+      <van-tab title="我的待办">
         <CompetitionCenter></CompetitionCenter>
       </van-tab>
-      <van-tab title="赛事中心">
+      <van-tab title="个人中心">
         <StrategyCenter></StrategyCenter>
       </van-tab>
     </van-tabs>

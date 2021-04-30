@@ -16,7 +16,12 @@
     </van-swipe>
     <!-- 多宫格选择 -->
     <van-grid :column-num="4" class="nine_grid">
-      <van-grid-item v-for="(item, index) in grids" :key="index" class="grids">
+      <van-grid-item
+        v-for="(item, index) in grids"
+        :key="index"
+        class="grids"
+        :url="item.url"
+      >
         <div :class="item.class"></div>
         <div class="">{{ item.text }}</div>
       </van-grid-item>
@@ -28,17 +33,17 @@
           <i class="iconfont">&#xe69e;</i>
           <div>新闻资讯</div>
         </div>
-        <div class="new_top_right">
+        <!-- <div class="new_top_right">
           <i class="iconfont">&#xe66e;</i>
-        </div>
+        </div> -->
       </div>
       <div class="news_list">
         <van-tabs v-model="active">
-          <van-tab title="热门"> </van-tab>
+          <van-tab title="热门"> <HotNews></HotNews> </van-tab>
           <van-tab title="新闻"> </van-tab>
           <van-tab title="公告"> </van-tab>
-          <van-tab title="活动"> </van-tab>
-          <van-tab title="赛事"> </van-tab>
+          <van-tab title="动态"> </van-tab>
+          <van-tab title="···"> </van-tab>
         </van-tabs>
       </div>
     </div>
@@ -46,67 +51,82 @@
 </template>
 
 <script>
+import HotNews from "@/views/NewsComponents/HotNews";
 export default {
+  components: {
+    HotNews,
+  },
   data() {
     return {
+      active:0,
       images: [
-        `https://ossweb-img.qq.com/upload/adw/image/20210213/b7e1a1ad55fa2912a43eaa7bfbeef2df.jpeg`,
-        `https://ossweb-img.qq.com/upload/adw/image/20210212/7d6fa51d4870e9a777644c5ef379b088.jpeg`,
-        `https://ossweb-img.qq.com/upload/adw/image/20210211/21b748056f350b0928e7d4ffafb6d81d.jpeg`,
+        `http://www.meileshikong.com/Upload/XueLiJiaoYu/2021%E5%B9%B403%E6%9C%8819%E6%97%A5%2017%E6%97%B653%E5%88%8610%E7%A7%92/%E6%B5%8B%E7%BB%98%E5%B7%A5%E7%A8%8B.jpg`,
+        `http://www.meileshikong.com/Upload/XueLiJiaoYu/2021%E5%B9%B403%E6%9C%8819%E6%97%A5%2017%E6%97%B609%E5%88%8652%E7%A7%92/%E8%88%AA%E7%A9%BA%E6%91%84%E5%BD%B1.jpg`,
+        `http://www.meileshikong.com/Upload/XueLiJiaoYu/2021%E5%B9%B403%E6%9C%8805%E6%97%A5%2017%E6%97%B634%E5%88%8625%E7%A7%92/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A-%E9%A6%96%E9%A1%B5.png`,
+        `http://www.meileshikong.com/Upload/XueLiJiaoYu/2021%E5%B9%B403%E6%9C%8819%E6%97%A5%2017%E6%97%B642%E5%88%8643%E7%A7%92/%E8%87%AA%E7%84%B6%E8%B5%84%E6%BA%90.jpg`,
       ],
       //  九宫格
       grids: [
         {
-          text: "爆料站",
+          text: "签到打卡",
           class: "class1",
+          url: "/#/signClock",
         },
         {
-          text: "故事站",
+          text: "日志填报",
           class: "class2",
+          url: "",
         },
         {
-          text: "周边商城",
+          text: "积分兑换",
           class: "class3",
+          url: "",
         },
         {
-          text: "体验服",
+          text: "项目周报 ",
           class: "class4",
+          url: "",
         },
         {
-          text: "新人专区",
+          text: "公司导航",
           class: "class5",
+          url: "",
         },
         {
-          text: "荣耀传承",
+          text: "任务下发",
           class: "class6",
-        },
-        {
-          text: "王者营地",
-          class: "class7",
-        },
-        {
-          text: "公众号",
-          class: "class8",
+          url: "",
         },
         {
           text: "版本介绍",
           class: "class9",
+          url: "",
         },
+        // {
+        //   text: "王",
+        //   class: "class7",
+        // },
         {
-          text: "对局环境",
-          class: "class10",
+          text: "公众号",
+          class: "class8",
+          url: "",
         },
-        {
-          text: "无限王者团",
-          class: "class11",
-        },
-        {
-          text: "创意互动营",
-          class: "class12",
-        },
+        // {
+        //   text: "环境",
+        //   class: "class10",
+        // },
+        // {
+        //   text: "团",
+        //   class: "class11",
+        // },
+        // {
+        //   text: "创意互动",
+        //   class: "class12",
+        // },
       ],
     };
   },
+  methods: {},
 };
 </script>
 
@@ -121,8 +141,8 @@ export default {
   background-color: #f2f2f2;
 }
 .van-swipe {
-  height: 11rem;
-  margin-top: 0.5rem;
+  height: 12rem;
+  margin-top: 0;
   img {
     width: 100%;
     height: 100%;

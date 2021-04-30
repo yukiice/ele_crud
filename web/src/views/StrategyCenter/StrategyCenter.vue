@@ -8,7 +8,7 @@
 -->
 <template>
   <div>
-      攻略中心
+      个人中心
   </div>
 </template>
 

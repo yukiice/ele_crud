@@ -5,16 +5,24 @@ import Home from '../views/Home.vue'
 Vue.use(VueRouter)
 
 const routes = [{
-        path: '/',
-        name: 'Home',
-        component: Home,
-        children: [],
+    path: '/',
+    name: 'Home',
+    component: Home,
+    children: [],
+},
+{
+    path: '/honor',
+    name: 'Honor',
+    component: () => import('../views/Honor.vue'),
+},
+{
+    path: '/signClock',
+    name: 'SignClock',
+    meta: {
+        title: '考勤打卡',
     },
-    {
-        path:'/honor',
-        name:'Honor',
-        component:()=>import('../views/Honor.vue'),
-    }
+    component: () => import('../views/GardItems/SignClock.vue'),
+}
 
 ]
 
